@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.dao.ShouzutongjiDao">
+
+	<!-- 可根据自己的需求，是否要使用 -->
+    <resultMap type="com.entity.ShouzutongjiEntity" id="shouzutongjiMap">
+        <result property="shouzutongji" column="shouzutongji"/>
+        <result property="shouzurenshu" column="shouzurenshu"/>
+        <result property="shouzujine" column="shouzujine"/>
+        <result property="dengjishijian" column="dengjishijian"/>
+        <result property="yuefen" column="yuefen"/>
+        <result property="beizhu" column="beizhu"/>
+    </resultMap>
+
+	<select id="selectListVO"
+		resultType="com.entity.vo.ShouzutongjiVO" >
+		SELECT * FROM shouzutongji  shouzutongji         
+        <where> 1=1 ${ew.sqlSegment}</where>
+	</select>
+	
+	<select id="selectVO"
+		resultType="com.entity.vo.ShouzutongjiVO" >
+		SELECT  shouzutongji.* FROM shouzutongji  shouzutongji 	
+ 		<where> 1=1 ${ew.sqlSegment}</where>
+	</select>
+
+    <select id="selectListView"
+		resultType="com.entity.view.ShouzutongjiView" >
+
+		SELECT  shouzutongji.* FROM shouzutongji  shouzutongji 	        
+        <where> 1=1 ${ew.sqlSegment}</where>
+	</select>
+	
+	<select id="selectView"
+		resultType="com.entity.view.ShouzutongjiView" >
+		SELECT * FROM shouzutongji  shouzutongji <where> 1=1 ${ew.sqlSegment}</where>
+	</select>
+	
+</mapper>
